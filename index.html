@@ -7,150 +7,89 @@
     <style>
         * {margin:0; padding:0; box-sizing:border-box;}
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a2a5a 100%), 
-                        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255,235,59,0.2) 0%, transparent 50%);
-            background-size: cover, 200px 200px, 300px 300px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #001f3f 0%, #0074D9 50%, #7FDBFF 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
             color: white;
-            animation: twinkle 4s ease-in-out infinite alternate;
+            overflow: hidden;
         }
-        @keyframes twinkle {0% {background-position: 0 0, 0 0, 0 0;} 100% {background-position: 10px 10px, 20px 20px, 30px 30px;}}
+        @keyframes gradient {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
         .snow {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(2px 2px at 160px 30px, #eee, transparent);
-            background-repeat: repeat;
-            background-size: 200px 100px;
-            animation: snowfall 20s linear infinite;
+            background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px);
+            animation: snowfall 10s linear infinite;
         }
-        @keyframes snowfall {0% {background-position: 0 0, 0 0, 0 0, 0 0, 0 0;} 100% {background-position: 0 200px, 0 200px, 0 200px, 0 200px, 0 200px;}}
-        .container {position: relative; z-index: 3; text-align: center; padding: 20px;}
+        @keyframes snowfall {0% {transform: translateY(0px);} 100% {transform: translateY(100vh);}}
+        .container {text-align: center; padding: 20px; z-index: 1; position: relative;}
         h1 {
-            font-size: 2.8em;
-            text-shadow: 0 0 20px #ffd700, 0 0 40px #ffeb3b;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px #FFD700;
             margin-bottom: 10px;
             animation: glow 2s infinite alternate;
         }
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #ffeb3b;
-            text-shadow: 0 0 10px #000;
-        }
+        p {font-size: 1.4em; margin-bottom: 30px; color: #FFD700; text-shadow: 0 0 10px #000;}
         .calendar {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-            max-width: 760px;
+            gap: 12px;
+            max-width: 600px;
             margin: 0 auto;
         }
         .door {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, #dc143c, #b22222);
-            border: 4px solid #ffd700;
-            border-radius: 16px;
-            position: relative;
+            background: linear-gradient(135deg, #DC143C, #B22222);
+            border: 3px solid #FFD700;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,0,0.2);
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .door:hover {
-            transform: translateY(-12px) scale(1.08);
-            box-shadow: 0 20px 40px rgba(255,215,0,0.6), inset 0 0 30px rgba(255,215,0,0.4);
-        }
-        .door::before {
-            content: '🎁';
-            font-size: 3em;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .door span {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.4em;
+            font-size: 2em;
             font-weight: bold;
             color: white;
-            text-shadow: 3px 3px 6px #000;
-            z-index: 1;
+            text-shadow: 2px 2px 4px #000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
         }
-        @keyframes glow {from {text-shadow: 0 0 15px #ffd700;} to {text-shadow: 0 0 35px #fff, 0 0 50px #ffd700;}}
+        .door:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.5);
+        }
+        .door::before {content: '🎁'; position: absolute; font-size: 1.5em; z-index: -1;}
+        @keyframes glow {0% {text-shadow: 0 0 10px #FFD700;} 100% {text-shadow: 0 0 30px #FFD700, 0 0 40px #FFF;}}
     </style>
 </head>
 <body>
-
-<div class="snow"></div>
-
-<div class="container">
-    <h1>🎄 Kanaren Adventskalender 2025 🎄</h1>
-    <p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★ Kanaren-Urlaub für 2 Personen inkl. Flug!</strong></p>
-
-    <div class="calendar">
-        <div class="door"><span>1</span></div>
-        <div class="door"><span>2</span></div>
-        <div class="door"><span>3</span></div>
-        <div class="door"><span>4</span></div>
-        <div class="door"><span>5</span></div>
-        <div class="door"><span>6</span></div>
-        <div class="door"><span>7</span></div>
-        <div class="door"><span>8</span></div>
-        <div class="door"><span>9</span></div>
-        <div class="door"><span>10</span></div>
-        <div class="door"><span>11</span></div>
-        <div class="door"><span>12</span></div>
-        <div class="door"><span>13</span></div>
-        <div class="door"><span>14</span></div>
-        <div class="door"><span>15</span></div>
-        <div class="door"><span>16</span></div>
-        <div class="door"><span>17</span></div>
-        <div class="door"><span>18</span></div>
-        <div class="door"><span>19</span></div>
-        <div class="door"><span>20</span></div>
-        <div class="door"><span>21</span></div>
-        <div class="door"><span>22</span></div>
-        <div class="door"><span>23</span></div>
-        <div class="door"><span>24</span></div>
+    <div class="snow"></div>
+    <div class="container">
+        <h1>🎄 Kanaren Adventskalender 2025 🎄</h1>
+        <p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</strong></p>
+        <div class="calendar">
+            <div class="door">1</div><div class="door">2</div><div class="door">3</div><div class="door">4</div><div class="door">5</div><div class="door">6</div>
+            <div class="door">7</div><div class="door">8</div><div class="door">9</div><div class="door">10</div><div class="door">11</div><div class="door">12</div>
+            <div class="door">13</div><div class="door">14</div><div class="door">15</div><div class="door">16</div><div class="door">17</div><div class="door">18</div>
+            <div class="door">19</div><div class="door">20</div><div class="door">21</div><div class="door">22</div><div class="door">23</div><div class="door">24</div>
+        </div>
     </div>
-</div>
-
-<script>
-document.querySelectorAll('.door').forEach(door => {
-    door.addEventListener('click', go);
-});
-
-function go() {
-    const url = new URL('https://dt-ssl.com/');
-    url.searchParams.set('a', '291783');
-    url.searchParams.set('c', '388141');
-    url.searchParams.set('co', '355318');
-    url.searchParams.set('mt', '16');
-    url.searchParams.set('s1', 'canary_main');
-    
-    const params = new URLSearchParams(window.location.search);
-    const clickid = params.get('s2') || params.get('clickid') || '';
-    if (clickid) url.searchParams.set('s2', clickid);
-    
-    window.location.href = url.toString();
-}
-</script>
-
+    <script>
+        document.querySelectorAll('.door').forEach(door => door.addEventListener('click', () => {
+            const url = new URL('https://dt-ssl.com/');
+            url.searchParams.set('a', '291783'); url.searchParams.set('c', '388141'); url.searchParams.set('co', '355318');
+            url.searchParams.set('mt', '16'); url.searchParams.set('s1', 'canary_main');
+            const params = new URLSearchParams(location.search);
+            const clickid = params.get('s2') || params.get('clickid') || '';
+            if (clickid) url.searchParams.set('s2', clickid);
+            location.href = url.toString();
+        }));
+    </script>
 </body>
 </html>
