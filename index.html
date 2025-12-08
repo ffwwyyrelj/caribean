@@ -3,62 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventskalender - Gewinne eine Reise auf die Kanaren</title>
+    <title>Kanaren Adventskalender 2025</title>
     <style>
-        body { background: linear-gradient(to bottom, #007BFF, #00BFFF); color: white; text-align: center; font-family: Arial, sans-serif; }
-        h1 { font-size: 2em; margin: 20px; }
-        .calendar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 600px; margin: auto; }
-        .door { background: red; color: white; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 1.5em; cursor: pointer; border-radius: 5px; }
-        .door:hover { background: darkred; }
-        .open { background: green; }
-        form { margin: 20px; }
-        input { margin: 5px; padding: 10px; width: 200px; }
-        button { background: green; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        body {margin:0; font-family:Arial; background:linear-gradient(135deg,#003366,#0099cc); color:white; text-align:center; padding:20px;}
+        h1 {font-size:2.2em; margin:10px 0 20px;}
+        .grid {display:grid; grid-template-columns:repeat(6,1fr); gap:12px; max-width:700px; margin:30px auto;}
+        .door {background:#c00; height:90px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:2em; font-weight:bold; cursor:pointer; transition:0.3s;}
+        .door:hover {background:#900; transform:scale(1.05);}
+        .door.open {background:#006400; cursor:default;}
+        #formbox {display:none; margin:30px auto; max-width:400px; background:rgba(255,255,255,0.1); padding:20px; border-radius:15px;}
+        input, button {padding:12px; margin:8px; width:90%; border:none; border-radius:8px;}
+        button {background:#006400; color:white; font-size:1.2em; cursor:pointer;}
     </style>
 </head>
 <body>
-    <h1>Öffne dein Advents-Türchen und gewinne 10 Tage auf den Kanaren!</h1>
-    <p>5★ Hotel für 2 Personen, Flug inkl. – Nur bis 24.12.2025!</p>
-    <div class="calendar">
-        <!-- 24 doors -->
-        <div class="door" onclick="openDoor(this, 1)">1</div>
-        <div class="door" onclick="openDoor(this, 2)">2</div>
-        <div class="door" onclick="openDoor(this, 3)">3</div>
-        <div class="door" onclick="openDoor(this, 4)">4</div>
-        <div class="door" onclick="openDoor(this, 5)">5</div>
-        <div class="door" onclick="openDoor(this, 6)">6</div>
-        <div class="door" onclick="openDoor(this, 7)">7</div>
-        <div class="door" onclick="openDoor(this, 8)">8</div>
-        <div class="door" onclick="openDoor(this, 9)">9</div>
-        <div class="door" onclick="openDoor(this, 10)">10</div>
-        <div class="door" onclick="openDoor(this, 11)">11</div>
-        <div class="door" onclick="openDoor(this, 12)">12</div>
-        <div class="door" onclick="openDoor(this, 13)">13</div>
-        <div class="door" onclick="openDoor(this, 14)">14</div>
-        <div class="door" onclick="openDoor(this, 15)">15</div>
-        <div class="door" onclick="openDoor(this, 16)">16</div>
-        <div class="door" onclick="openDoor(this, 17)">17</div>
-        <div class="door" onclick="openDoor(this, 18)">18</div>
-        <div class="door" onclick="openDoor(this, 19)">19</div>
-        <div class="door" onclick="openDoor(this, 20)">20</div>
-        <div class="door" onclick="openDoor(this, 21)">21</div>
-        <div class="door" onclick="openDoor(this, 22)">22</div>
-        <div class="door" onclick="openDoor(this, 23)">23</div>
-        <div class="door" onclick="openDoor(this, 24)">24</div>
-    </div>
-    <p id="message" style="font-size: 1.2em; margin: 20px;"></p>
-    <form action="vk.com" method="get" style="display: none;" id="form">
-        <input type="text" placeholder="Vorname" name="vorname" required><br>
-        <input type="email" placeholder="E-Mail" name="email" required><br>
-        <button type="submit">Jetzt teilnehmen und gewinnen!</button>
+
+<h1>Öffne dein Advents-Türchen<br>und gewinne 10 Tage Kanaren für 2 Personen!</h1>
+<p>5★ Hotel + Flug inklusive · kostenlos teilnehmen</p>
+
+<div class="grid" id="calendar">
+    <!-- 24 Türchen -->
+    <div class="door" onclick="openToday(this)">1</div>
+    <div class="door" onclick="openToday(this)">2</div>
+    <div class="door" onclick="openToday(this)">3</div>
+    <div class="door" onclick="openToday(this)">4</div>
+    <div class="door" onclick="openToday(this)">5</div>
+    <div class="door" onclick="openToday(this)">6</div>
+    <div class="door" onclick="openToday(this)">7</div>
+    <div class="door" onclick="openToday(this)">8</div>
+    <div class="door" onclick="openToday(this)">9</div>
+    <div class="door" onclick="openToday(this)">10</div>
+    <div class="door" onclick="openToday(this)">11</div>
+    <div class="door" onclick="openToday(this)">12</div>
+    <div class="door" onclick="openToday(this)">13</div>
+    <div class="door" onclick="openToday(this)">14</div>
+    <div class="door" onclick="openToday(this)">15</div>
+    <div class="door" onclick="openToday(this)">16</div>
+    <div class="door" onclick="openToday(this)">17</div>
+    <div class="door" onclick="openToday(this)">18</div>
+    <div class="door" onclick="openToday(this)">19</div>
+    <div class="door" onclick="openToday(this)">20</div>
+    <div class="door" onclick="openToday(this)">21</div>
+    <div class="door" onclick="openToday(this)">22</div>
+    <div class="door" onclick="openToday(this)">23</div>
+    <div class="door" onclick="openToday(this)">24</div>
+</div>
+
+<div id="formbox">
+    <h2>Glückwunsch! Du hast eine Gewinn-Chance!</h2>
+    <p>Jetzt nur noch Daten eingeben und die Reise sichern:</p>
+    <form action="https://dt-ssl.com/" method="get">
+        <input type="hidden" name="a" value="291783">
+        <input type="hidden" name="c" value="388141">
+        <input type="hidden" name="co" value="355318">
+        <input type="hidden" name="mt" value="16">
+        <input type="hidden" name="s1" value="canary_main">
+        <input type="hidden" name="s2" value="{clickid}">
+        
+        <input type="text" name="vorname" placeholder="Vorname" required>
+        <input type="email" name="email" placeholder="E-Mail" required>
+        <button type="submit">Jetzt kostenlos teilnehmen!</button>
     </form>
-    <script>
-        function openDoor(door, num) {
-            door.classList.add('open');
-            door.textContent = '🎁';
-            document.getElementById('message').textContent = `Türchen ${num} geöffnet! Du hast eine Chance auf die Kanaren-Reise! Fülle das Formular aus.`;
-            document.getElementById('form').style.display = 'block';
-        }
-    </script>
+</div>
+
+<script>
+function openToday(el) {
+    if (el.classList.contains('open')) return;
+    el.classList.add('open');
+    el.innerHTML = '✈';
+    document.getElementById('formbox').style.display = 'block';
+    // автопрокролл к форме на мобилках
+    document.getElementById('formbox').scrollIntoView({behavior: 'smooth'});
+}
+</script>
+
 </body>
 </html>
