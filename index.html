@@ -3,77 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanaren Adventskalender 2025</title>
+    <title>Kanaren Adventskalender 2025 – Gewinne jetzt!</title>
     <style>
-        body {margin:0; font-family:Arial; background:linear-gradient(135deg,#003366,#0099cc); color:white; text-align:center; padding:20px;}
-        h1 {font-size:2.2em; margin:10px 0 20px;}
-        .grid {display:grid; grid-template-columns:repeat(6,1fr); gap:12px; max-width:700px; margin:30px auto;}
-        .door {background:#c00; height:90px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:2em; font-weight:bold; cursor:pointer; transition:0.3s;}
-        .door:hover {background:#900; transform:scale(1.05);}
-        .door.open {background:#006400; cursor:default;}
-        #formbox {display:none; margin:30px auto; max-width:400px; background:rgba(255,255,255,0.1); padding:20px; border-radius:15px;}
-        input, button {padding:12px; margin:8px; width:90%; border:none; border-radius:8px;}
-        button {background:#006400; color:white; font-size:1.2em; cursor:pointer;}
+        body {margin:0; font-family:Arial,Helvetica,sans-serif; background:linear-gradient(135deg,#001f3f,#007bff); color:white; text-align:center; padding:20px 10px;}
+        h1 {font-size:2.3em; margin:15px 0 10px;}
+        p {font-size:1.2em;}
+        .grid {display:grid; grid-template-columns:repeat(6,1fr); gap:12px; max-width:720px; margin:30px auto;}
+        .door {background:#c00; height:90px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2.2em; font-weight:bold; cursor:pointer; transition:all 0.3s;}
+        .door:hover {background:#900; transform:scale(1.07);}
+        .door.open {background:#006400; cursor:default; transform:scale(1);}
+        .door.open::after {content:"✈️"; font-size:2.5em;}
+        #msg {font-size:1.4em; margin:20px; display:none;}
     </style>
 </head>
 <body>
 
-<h1>Öffne dein Advents-Türchen<br>und gewinne 10 Tage Kanaren für 2 Personen!</h1>
-<p>5★ Hotel + Flug inklusive · kostenlos teilnehmen</p>
+<h1>Kanaren Adventskalender 2025</h1>
+<p>Öffne ein Türchen und gewinne sofort<br>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</p>
 
 <div class="grid" id="calendar">
-    <!-- 24 Türchen -->
-    <div class="door" onclick="openToday(this)">1</div>
-    <div class="door" onclick="openToday(this)">2</div>
-    <div class="door" onclick="openToday(this)">3</div>
-    <div class="door" onclick="openToday(this)">4</div>
-    <div class="door" onclick="openToday(this)">5</div>
-    <div class="door" onclick="openToday(this)">6</div>
-    <div class="door" onclick="openToday(this)">7</div>
-    <div class="door" onclick="openToday(this)">8</div>
-    <div class="door" onclick="openToday(this)">9</div>
-    <div class="door" onclick="openToday(this)">10</div>
-    <div class="door" onclick="openToday(this)">11</div>
-    <div class="door" onclick="openToday(this)">12</div>
-    <div class="door" onclick="openToday(this)">13</div>
-    <div class="door" onclick="openToday(this)">14</div>
-    <div class="door" onclick="openToday(this)">15</div>
-    <div class="door" onclick="openToday(this)">16</div>
-    <div class="door" onclick="openToday(this)">17</div>
-    <div class="door" onclick="openToday(this)">18</div>
-    <div class="door" onclick="openToday(this)">19</div>
-    <div class="door" onclick="openToday(this)">20</div>
-    <div class="door" onclick="openToday(this)">21</div>
-    <div class="door" onclick="openToday(this)">22</div>
-    <div class="door" onclick="openToday(this)">23</div>
-    <div class="door" onclick="openToday(this)">24</div>
+    <div class="door" onclick="fly()"></div>
+    <div class="door" onclick="fly()">2</div>
+    <div class="door" onclick="fly()">3</div>
+    <div class="door" onclick="fly()">4</div>
+    <div class="door" onclick="fly()">5</div>
+    <div class="door" onclick="fly()">6</div>
+    <div class="door" onclick="fly()">7</div>
+    <div class="door" onclick="fly()">8</div>
+    <div class="door" onclick="fly()">9</div>
+    <div class="door" onclick="fly()">10</div>
+    <div class="door" onclick="fly()">11</div>
+    <div class="door" onclick="fly()">12</div>
+    <div class="door" onclick="fly()">13</div>
+    <div class="door" onclick="fly()">14</div>
+    <div class="door" onclick="fly()">15</div>
+    <div class="door" onclick="fly()">16</div>
+    <div class="door" onclick="fly()">17</div>
+    <div class="door" onclick="fly()">18</div>
+    <div class="door" onclick="fly()">19</div>
+    <div class="door" onclick="fly()">20</div>
+    <div class="door" onclick="fly()">21</div>
+    <div class="door" onclick="fly()">22</div>
+    <div class="door" onclick="fly()">23</div>
+    <div class="door" onclick="fly()">24</div>
 </div>
 
-<div id="formbox">
-    <h2>Glückwunsch! Du hast eine Gewinn-Chance!</h2>
-    <p>Jetzt nur noch Daten eingeben und die Reise sichern:</p>
-    <form action="https://dt-ssl.com/" method="get">
-        <input type="hidden" name="a" value="291783">
-        <input type="hidden" name="c" value="388141">
-        <input type="hidden" name="co" value="355318">
-        <input type="hidden" name="mt" value="16">
-        <input type="hidden" name="s1" value="canary_main">
-        <input type="hidden" name="s2" value="{clickid}">
-        
-        <input type="text" name="vorname" placeholder="Vorname" required>
-        <input type="email" name="email" placeholder="E-Mail" required>
-        <button type="submit">Jetzt kostenlos teilnehmen!</button>
-    </form>
-</div>
+<div id="msg">Du wirst weitergeleitet…</div>
 
 <script>
-function openToday(el) {
-    if (el.classList.contains('open')) return;
-    el.classList.add('open');
-    el.innerHTML = '✈';
-    document.getElementById('formbox').style.display = 'block';
-    // автопрокролл к форме на мобилках
-    document.getElementById('formbox').scrollIntoView({behavior: 'smooth'});
+function fly() {
+    // открываем дверцу визуально
+    event.target.classList.add('open');
+    event.target.innerHTML = '';
+    document.getElementById('msg').style.display = 'block';
+    
+    // мгновенный редирект на твой оффер с сохранением clickid
+    window.location.href = "https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
 }
 </script>
 
