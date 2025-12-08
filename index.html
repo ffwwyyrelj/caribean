@@ -8,7 +8,7 @@
         * {margin:0; padding:0; box-sizing:border-box;}
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://images.unsplash.com/photo-1603123854882-0c7b4f6d68fc?w=1600&q=80') center/cover fixed;
+            background: url('https://media.istockphoto.com/id/498741260/photo/christmas-background-with-christmass-balls-soft-focus.jpg?s=612x612&w=0&k=20&c=ps1O03i9YBCAMOHfMiR_rwZDhvSb58qPIS3_lxc5z1g=') center/cover fixed;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -22,10 +22,19 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0,30,80,0.7), rgba(0,80,150,0.6));
+            background: linear-gradient(135deg, rgba(0,30,80,0.6), rgba(0,80,150,0.5));
             z-index: 1;
         }
-        .container {position: relative; z-index: 2; text-align: center; padding: 20px;}
+        .snowfall {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 300%;
+            pointer-events: none;
+            z-index: 2;
+            background: url('https://media.giphy.com/media/3o6Zt6KHxJTzyl4kH6/giphy.gif') repeat;
+            animation: snow 20s linear infinite;
+        }
+        @keyframes snow {0% {background-position: 0 0;} 100% {background-position: 0 1000px;}}
+        .container {position: relative; z-index: 3; text-align: center; padding: 20px;}
         h1 {
             font-size: 2.8em;
             text-shadow: 0 0 20px gold, 0 0 40px #ffeb3b;
@@ -48,7 +57,7 @@
         .door {
             width: 100%;
             padding-top: 100%;
-            background: url('https://i.ibb.co/KsQ7n8F/gift-box.png') center/cover no-repeat;
+            background: url('https://media.istockphoto.com/id/180703969/photo/red-gift-on-white-background.jpg?s=612x612&w=0&k=20&c=dRsCVtvWiLmb7u9CSX4d9_tldQPxHNow_sDku4vmSxk=') center/cover no-repeat;
             border-radius: 16px;
             position: relative;
             cursor: pointer;
@@ -68,16 +77,7 @@
             color: white;
             text-shadow: 3px 3px 6px #000;
         }
-        .snowfall {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 3;
-            background: url('https://i.ibb.co/4p7F0tL/snow.png');
-            animation: snow 10s linear infinite;
-        }
         @keyframes glow {from {text-shadow: 0 0 15px gold;} to {text-shadow: 0 0 35px #fff, 0 0 50px gold;}}
-        @keyframes snow {0% {background-position: 0 0;} 100% {background-position: 0 1000px;}}
     </style>
 </head>
 <body>
@@ -95,46 +95,4 @@
         <div class="door" onclick="go()"><span>4</span></div>
         <div class="door" onclick="go()"><span>5</span></div>
         <div class="door" onclick="go()"><span>6</span></div>
-        <div class="door" onclick="go()"><span>7</span></div>
-        <div class="door" onclick="go()"><span>8</span></div>
-        <div class="door" onclick="go()"><span>9</span></div>
-        <div class="door" onclick="go()"><span>10</span></div>
-        <div class="door" onclick="go()"><span>11</span></div>
-        <div class="door" onclick="go()"><span>12</span></div>
-        <div class="door" onclick="go()"><span>13</span></div>
-        <div class="door" onclick="go()"><span>14</span></div>
-        <div class="door" onclick="go()"><span>15</span></div>
-        <div class="door" onclick="go()"><span>16</span></div>
-        <div class="door" onclick="go()"><span>17</span></div>
-        <div class="door" onclick="go()"><span>18</span></div>
-        <div class="door" onclick="go()"><span>19</span></div>
-        <div class="door" onclick="go()"><span>20</span></div>
-        <div class="door" onclick="go()"><span>21</span></div>
-        <div class="door" onclick="go()"><span>22</span></div>
-        <div class="door" onclick="go()"><span>23</span></div>
-        <div class="door" onclick="go()"><span>24</span></div>
-    </div>
-</div>
-
-<script>
-function go() {
-    // твоя точная ссылка с {clickid}
-    const url = new URL('https://dt-ssl.com/');
-    url.searchParams.set('a', '291783');
-    url.searchParams.set('c', '388141');
-    url.searchParams.set('co', '355318');
-    url.searchParams.set('mt', '16');
-    url.searchParams.set('s1', 'canary_main');
-    
-    // берём clickid из URL (если лил через трекер) или из cookie
-    const clickid = new URLSearchParams(window.location.search).get('s2') 
-                 || new URLSearchParams(window.location.search).get('clickid')
-                 || '';
-    if (clickid) url.searchParams.set('s2', clickid);
-    
-    window.location.href = url.toString();
-}
-</script>
-
-</body>
-</html>
+        <div class="door" onclick="go
