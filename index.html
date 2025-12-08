@@ -5,165 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanaren Adventskalender 2025</title>
     <style>
+        * {margin:0; padding:0; box-sizing:border-box;}
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2b5e, #1e5799);
-            color: white;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1603123854882-0c7b4f6d68fc?w=1600&q=80') center/cover fixed;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
+            color: white;
         }
         body::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://images.unsplash.com/photo-1543589078-8689f5e0a8a5?auto=format&fit=crop&q=80') center/cover no-repeat;
-            opacity: 0.25;
-            z-index: -1;
-        }
-        .snow { 
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            pointer-events: none; 
-            z-index: 0;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin: 20px 0 10px;
-            text-shadow: 0 0 15px gold;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,30,80,0.7), rgba(0,80,150,0.6));
             z-index: 1;
-            position: relative;
         }
-        p {color: #ffeb3b; font-size: 1.3em; margin-bottom: 30px;}
+        .container {position: relative; z-index: 2; text-align: center; padding: 20px;}
+        h1 {
+            font-size: 2.8em;
+            text-shadow: 0 0 20px gold, 0 0 40px #ffeb3b;
+            margin-bottom: 10px;
+            animation: glow 2s infinite alternate;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px #000;
+        }
         .calendar {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 14px;
-            max-width: 720px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            gap: 16px;
+            max-width: 760px;
+            margin: 0 auto;
         }
         .door {
+            width: 100%;
+            padding-top: 100%;
             background: url('https://i.ibb.co/KsQ7n8F/gift-box.png') center/cover no-repeat;
-            height: 100px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2em;
+            border-radius: 16px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .door:hover {
+            transform: translateY(-12px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.6);
+        }
+        .door span {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.4em;
             font-weight: bold;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            cursor: pointer;
-            transition: all 0.4s;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            text-shadow: 3px 3px 6px #000;
         }
-        .door:hover {transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 25px rgba(255,215,0,0.6);}
-        .door.open {
-            background: url('https://i.ibb.co/5YpYxWq/open-gift.png') center/cover no-repeat;
-            cursor: default;
-            transform: scale(1.1);
+        .snowfall {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            background: url('https://i.ibb.co/4p7F0tL/snow.png');
+            animation: snow 10s linear infinite;
         }
-        #formbox {
-            display: none;
-            max-width: 420px;
-            margin: 0 auto 40px;
-            background: rgba(255,255,255,0.15);
-            padding: 25px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 1;
-            position: relative;
-        }
-        input {
-            width: 100%;
-            max-width: 340px;
-            padding: 14px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-        }
-        button {
-            background: linear-gradient(45deg, #c00, #f00);
-            color: white;
-            padding: 16px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
-        button:hover {transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,0,0,0.5);}
-        .stars {position: absolute; top: 10px; color: gold; animation: twinkle 3s infinite;}
-        @keyframes twinkle {0%,100%{opacity:0.6} 50%{opacity:1}}
+        @keyframes glow {from {text-shadow: 0 0 15px gold;} to {text-shadow: 0 0 35px #fff, 0 0 50px gold;}}
+        @keyframes snow {0% {background-position: 0 0;} 100% {background-position: 0 1000px;}}
     </style>
 </head>
 <body>
 
-<div class="snow">✨❄️✨❄️✨❄️✨</div>
+<div class="snowfall"></div>
 
-<h1>Kanaren Adventskalender 2025</h1>
-<p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</strong></p>
+<div class="container">
+    <h1>Kanaren Adventskalender 2025</h1>
+    <p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★ Kanaren-Urlaub für 2 Personen inkl. Flug!</strong></p>
 
-<div class="calendar">
-    <div class="door" onclick="openDoor(this)">1</div>
-    <div class="door" onclick="openDoor(this)">2</div>
-    <div class="door" onclick="openDoor(this)">3</div>
-    <div class="door" onclick="openDoor(this)">4</div>
-    <div class="door" onclick="openDoor(this)">5</div>
-    <div class="door" onclick="openDoor(this)">6</div>
-    <div class="door" onclick="openDoor(this)">7</div>
-    <div class="door" onclick="openDoor(this)">8</div>
-    <div class="door" onclick="openDoor(this)">9</div>
-    <div class="door" onclick="openDoor(this)">10</div>
-    <div class="door" onclick="openDoor(this)">11</div>
-    <div class="door" onclick="openDoor(this)">12</div>
-    <div class="door" onclick="openDoor(this)">13</div>
-    <div class="door" onclick="openDoor(this)">14</div>
-    <div class="door" onclick="openDoor(this)">15</div>
-    <div class="door" onclick="openDoor(this)">16</div>
-    <div class="door" onclick="openDoor(this)">17</div>
-    <div class="door" onclick="openDoor(this)">18</div>
-    <div class="door" onclick="openDoor(this)">19</div>
-    <div class="door" onclick="openDoor(this)">20</div>
-    <div class="door" onclick="openDoor(this)">21</div>
-    <div class="door" onclick="openDoor(this)">22</div>
-    <div class="door" onclick="openDoor(this)">23</div>
-    <div class="door" onclick="openDoor(this)">24</div>
-</div>
-
-<div id="formbox">
-    <h2>Glückwunsch! Du hast gewonnen!</h2>
-    <p>Jetzt nur noch deine Daten eingeben und die Kanaren-Reise sichern:</p>
-    <form action="https://dt-ssl.com/" method="get">
-        <input type="hidden" name="a" value="291783">
-        <input type="hidden" name="c" value="388141">
-        <input type="hidden" name="co" value="355318">
-        <input type="hidden" name="mt" value="16">
-        <input type="hidden" name="s1" value="canary_main">
-        <input type="hidden" name="s2" value="{clickid}">
-        
-        <input type="text" name="vorname" placeholder="Vorname" required>
-        <input type="email" name="email" placeholder="E-Mail-Adresse" required>
-        <button type="submit">Kostenlos teilnehmen & gewinnen!</button>
-    </form>
+    <div class="calendar">
+        <div class="door" onclick="go()"><span>1</span></div>
+        <div class="door" onclick="go()"><span>2</span></div>
+        <div class="door" onclick="go()"><span>3</span></div>
+        <div class="door" onclick="go()"><span>4</span></div>
+        <div class="door" onclick="go()"><span>5</span></div>
+        <div class="door" onclick="go()"><span>6</span></div>
+        <div class="door" onclick="go()"><span>7</span></div>
+        <div class="door" onclick="go()"><span>8</span></div>
+        <div class="door" onclick="go()"><span>9</span></div>
+        <div class="door" onclick="go()"><span>10</span></div>
+        <div class="door" onclick="go()"><span>11</span></div>
+        <div class="door" onclick="go()"><span>12</span></div>
+        <div class="door" onclick="go()"><span>13</span></div>
+        <div class="door" onclick="go()"><span>14</span></div>
+        <div class="door" onclick="go()"><span>15</span></div>
+        <div class="door" onclick="go()"><span>16</span></div>
+        <div class="door" onclick="go()"><span>17</span></div>
+        <div class="door" onclick="go()"><span>18</span></div>
+        <div class="door" onclick="go()"><span>19</span></div>
+        <div class="door" onclick="go()"><span>20</span></div>
+        <div class="door" onclick="go()"><span>21</span></div>
+        <div class="door" onclick="go()"><span>22</span></div>
+        <div class="door" onclick="go()"><span>23</span></div>
+        <div class="door" onclick="go()"><span>24</span></div>
+    </div>
 </div>
 
 <script>
-function openDoor(el) {
-    if (el.classList.contains('open')) return;
-    el.classList.add('open');
-    el.innerHTML = '✈';
-    document.getElementById('formbox').style.display = 'block';
-    document.getElementById('formbox').scrollIntoView({behavior: 'smooth'});
+function go() {
+    // твоя точная ссылка с {clickid}
+    const url = new URL('https://dt-ssl.com/');
+    url.searchParams.set('a', '291783');
+    url.searchParams.set('c', '388141');
+    url.searchParams.set('co', '355318');
+    url.searchParams.set('mt', '16');
+    url.searchParams.set('s1', 'canary_main');
+    
+    // берём clickid из URL (если лил через трекер) или из cookie
+    const clickid = new URLSearchParams(window.location.search).get('s2') 
+                 || new URLSearchParams(window.location.search).get('clickid')
+                 || '';
+    if (clickid) url.searchParams.set('s2', clickid);
+    
+    window.location.href = url.toString();
 }
 </script>
 
