@@ -8,7 +8,10 @@
         * {margin:0; padding:0; box-sizing:border-box;}
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://media.istockphoto.com/id/498741260/photo/christmas-background-with-christmass-balls-soft-focus.jpg?s=612x612&w=0&k=20&c=ps1O03i9YBCAMOHfMiR_rwZDhvSb58qPIS3_lxc5z1g=') center/cover fixed;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2a2a5a 100%), 
+                        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,235,59,0.2) 0%, transparent 50%);
+            background-size: cover, 200px 200px, 300px 300px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -17,27 +20,28 @@
             position: relative;
             overflow: hidden;
             color: white;
+            animation: twinkle 4s ease-in-out infinite alternate;
         }
-        body::before {
-            content: '';
+        @keyframes twinkle {0% {background-position: 0 0, 0 0, 0 0;} 100% {background-position: 10px 10px, 20px 20px, 30px 30px;}}
+        .snow {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,30,80,0.6), rgba(0,80,150,0.5));
-            z-index: 1;
-        }
-        .snowfall {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 300%;
+            top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            z-index: 2;
-            background: url('https://media.giphy.com/media/3o6Zt6KHxJTzyl4kH6/giphy.gif') repeat;
-            animation: snow 20s linear infinite;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(2px 2px at 160px 30px, #eee, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: snowfall 20s linear infinite;
         }
-        @keyframes snow {0% {background-position: 0 0;} 100% {background-position: 0 1000px;}}
+        @keyframes snowfall {0% {background-position: 0 0, 0 0, 0 0, 0 0, 0 0;} 100% {background-position: 0 200px, 0 200px, 0 200px, 0 200px, 0 200px;}}
         .container {position: relative; z-index: 3; text-align: center; padding: 20px;}
         h1 {
             font-size: 2.8em;
-            text-shadow: 0 0 20px gold, 0 0 40px #ffeb3b;
+            text-shadow: 0 0 20px #ffd700, 0 0 40px #ffeb3b;
             margin-bottom: 10px;
             animation: glow 2s infinite alternate;
         }
@@ -55,18 +59,28 @@
             margin: 0 auto;
         }
         .door {
-            width: 100%;
-            padding-top: 100%;
-            background: url('https://i.ibb.co/KsQ7n8F/gift-box.png') center/cover no-repeat;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #dc143c, #b22222);
+            border: 4px solid #ffd700;
             border-radius: 16px;
             position: relative;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .door:hover {
             transform: translateY(-12px) scale(1.08);
-            box-shadow: 0 20px 40px rgba(255,215,0,0.6);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.6), inset 0 0 30px rgba(255,215,0,0.4);
+        }
+        .door::before {
+            content: '🎁';
+            font-size: 3em;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
         }
         .door span {
             position: absolute;
@@ -76,16 +90,17 @@
             font-weight: bold;
             color: white;
             text-shadow: 3px 3px 6px #000;
+            z-index: 1;
         }
-        @keyframes glow {from {text-shadow: 0 0 15px gold;} to {text-shadow: 0 0 35px #fff, 0 0 50px gold;}}
+        @keyframes glow {from {text-shadow: 0 0 15px #ffd700;} to {text-shadow: 0 0 35px #fff, 0 0 50px #ffd700;}}
     </style>
 </head>
 <body>
 
-<div class="snowfall"></div>
+<div class="snow"></div>
 
 <div class="container">
-    <h1>Kanaren Adventskalender 2025</h1>
+    <h1>🎄 Kanaren Adventskalender 2025 🎄</h1>
     <p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★ Kanaren-Urlaub für 2 Personen inkl. Flug!</strong></p>
 
     <div class="calendar">
@@ -109,4 +124,33 @@
         <div class="door"><span>18</span></div>
         <div class="door"><span>19</span></div>
         <div class="door"><span>20</span></div>
-        <div class="door"><span>21</span><
+        <div class="door"><span>21</span></div>
+        <div class="door"><span>22</span></div>
+        <div class="door"><span>23</span></div>
+        <div class="door"><span>24</span></div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.door').forEach(door => {
+    door.addEventListener('click', go);
+});
+
+function go() {
+    const url = new URL('https://dt-ssl.com/');
+    url.searchParams.set('a', '291783');
+    url.searchParams.set('c', '388141');
+    url.searchParams.set('co', '355318');
+    url.searchParams.set('mt', '16');
+    url.searchParams.set('s1', 'canary_main');
+    
+    const params = new URLSearchParams(window.location.search);
+    const clickid = params.get('s2') || params.get('clickid') || '';
+    if (clickid) url.searchParams.set('s2', clickid);
+    
+    window.location.href = url.toString();
+}
+</script>
+
+</body>
+</html>
