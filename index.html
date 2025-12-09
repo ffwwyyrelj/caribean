@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanaren Adventskalender 2025</title>
 
-    <!-- Meta Pixel -->
+    <!-- Твой Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,18 +21,46 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=4087538184909337&ev=PageView&noscript=1"/>
     </noscript>
+    <!-- End Pixel -->
 
     <style>
         body {margin:0; font-family:Arial,sans-serif; background:linear-gradient(135deg,#001f3f,#007bff); color:white; text-align:center; padding:20px 10px;}
         h1 {font-size:2.4em; margin:15px 0 8px;}
         p {font-size:1.25em; margin-bottom:30px;}
-        .grid {display:grid; grid-template-columns:repeat(6,1fr); gap:14px; max-width:800px; margin:0 auto;}
-        .door {background:#d32f2f; height:90px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2.3em; font-weight:bold; cursor:pointer; transition:.3s; box-shadow:0 4px 10px rgba(0,0,0,0.3);}
+        .grid {
+            display:grid;
+            grid-template-columns:repeat(6,1fr);
+            gap:15px;
+            max-width:900px;
+            margin:0 auto;
+        }
+        .door {
+            background:#d32f2f;
+            height:95px;
+            border-radius:14px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:2.4em;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+            box-shadow:0 6px 12px rgba(0,0,0,0.4);
+        }
         .door:hover {background:#b71c1c; transform:scale(1.08);}
         .door.open {background:#006400; cursor:default;}
-        .door.open::after {content:"✈️"; font-size:2.8em;}
-        #msg {font-size:1.4em; margin-top:30px; display:none;}
-        @media (max-width:640px) {.grid{grid-template-columns:repeat(4,1fr); gap:12px;}}
+        .door.open::after {content:"✈️"; font-size:3em;}
+        #msg {font-size:1.5em; margin-top:40px; display:none;}
+
+        /* Мобильная версия — 4 столбца */
+        @media (max-width:768px) {
+            .grid {grid-template-columns:repeat(4,1fr); gap:14px;}
+            .door {height:85px; font-size:2.2em;}
+        }
+        @media (max-width:480px) {
+            .grid {grid-template-columns:repeat(3,1fr); gap:12px;}
+            .door {height:75px; font-size:2em;}
+        }
     </style>
 </head>
 <body>
@@ -76,8 +104,10 @@ function fly() {
     event.target.innerHTML = '';
     document.getElementById('msg').style.display = 'block';
 
+    // Lead-событие
     fbq('track', 'Lead');
 
+    // Точный редирект на твой оффер
     window.location.href = "https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
 }
 </script>
