@@ -49,8 +49,8 @@
         .door.open::after{content:"✈️";font-size:3.2em}
         #msg{font-size:1.6em;margin-top:40px;display:none}
 
-        @media(max-width:768px){.grid{grid-template-columns:repeat(4,1fr);gap:14px}}
-        @media(max-width:480px){.grid{grid-template-columns:repeat(3,1fr);gap:12px}.door{height:85px;font-size:2.2em}}
+        @media(max-width:768px){.grid{grid-template-columns:repeat(4,1fr)}}
+        @media(max-width:480px){.grid{grid-template-columns:repeat(3,1fr)}.door{height:85px;font-size:2.2em}}
     </style>
 </head>
 <body>
@@ -59,42 +59,44 @@
 <p>Öffne ein Türchen und gewinne sofort<br>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</p>
 
 <div class="grid">
-    <div class="door" onclick="fly()">1</div>
-    <div class="door" onclick="fly()">2</div>
-    <div class="door" onclick="fly()">3</div>
-    <div class="door" onclick="fly()">4</div>
-    <div class="door" onclick="fly()">5</div>
-    <div class="door" onclick="fly()">6</div>
-    <div class="door" onclick="fly()">7</div>
-    <div class="door" onclick="fly()">8</div>
-    <div class="door" onclick="fly()">9</div>
-    <div class="door" onclick="fly()">10</div>
-    <div class="door" onclick="fly()">11</div>
-    <div class="door" onclick="fly()">12</div>
-    <div class="door" onclick="fly()">13</div>
-    <div class="door" onclick="fly()">14</div>
-    <div class="door" onclick="fly()">15</div>
-    <div class="door" onclick="fly()">16</div>
-    <div class="door" onclick="fly()">17</div>
-    <div class="door" onclick="fly()">18</div>
-    <div class="door" onclick="fly()">19</div>
-    <div class="door" onclick="fly()">20</div>
-    <div class="door" onclick="fly()">21</div>
-    <div class="door" onclick="fly()">22</div>
-    <div class="door" onclick="fly()">23</div>
-    <div class="door" onclick="fly()">24</div>
+    <div class="door" onclick="fly(this)">1</div>
+    <div class="door" onclick="fly(this)">2</div>
+    <div class="door" onclick="fly(this)">3</div>
+    <div class="door" onclick="fly(this)">4</div>
+    <div class="door" onclick="fly(this)">5</div>
+    <div class="door" onclick="fly(this)">6</div>
+    <div class="door" onclick="fly(this)">7</div>
+    <div class="door" onclick="fly(this)">8</div>
+    <div class="door" onclick="fly(this)">9</div>
+    <div class="door" onclick="fly(this)">10</div>
+    <div class="door" onclick="fly(this)">11</div>
+    <div class="door" onclick="fly(this)">12</div>
+    <div class="door" onclick="fly(this)">13</div>
+    <div class="door" onclick="fly(this)">14</div>
+    <div class="door" onclick="fly(this)">15</div>
+    <div class="door" onclick="fly(this)">16</div>
+    <div class="door" onclick="fly(this)">17</div>
+    <div class="door" onclick="fly(this)">18</div>
+    <div class="door" onclick="fly(this)">19</div>
+    <div class="door" onclick="fly(this)">20</div>
+    <div class="door" onclick="fly(this)">21</div>
+    <div class="door" onclick="fly(this)">22</div>
+    <div class="door" onclick="fly(this)">23</div>
+    <div class="door" onclick="fly(this)">24</div>
 </div>
 
 <div id="msg">Du wirst weitergeleitet…</div>
 
 <script>
-function fly(){
-    if(this.classList.contains('open'))return;
-    this.classList.add('open');
-    this.innerHTML='';
-    document.getElementById('msg').style.display='block';
-    fbq('track','Lead');
-    window.location.href="https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
+function fly(el) {
+    if (el.classList.contains('open')) return;
+    el.classList.add('open');
+    el.innerHTML = '';
+    document.getElementById('msg').style.display = 'block';
+
+    fbq('track', 'Lead');
+
+    window.location.href = "https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
 }
 </script>
 
