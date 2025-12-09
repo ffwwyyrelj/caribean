@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanaren Adventskalender 2025</title>
 
-    <!-- Твой Meta Pixel -->
+    <!-- Твой пиксель -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,49 +18,39 @@
     fbq('init', '4087538184909337');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=4087538184909337&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- End Pixel -->
 
     <style>
-        body {margin:0; font-family:Arial,sans-serif; background:linear-gradient(135deg,#001f3f,#007bff); color:white; text-align:center; padding:20px 10px;}
-        h1 {font-size:2.4em; margin:15px 0 8px;}
-        p {font-size:1.25em; margin-bottom:30px;}
-        .grid {
+        *{box-sizing:border-box}
+        body{margin:0;padding:20px 10px;font-family:Arial,sans-serif;background:linear-gradient(135deg,#001f3f,#007bff);color:#fff;text-align:center}
+        h1{font-size:2.5em;margin:10px 0 5px}
+        p{font-size:1.3em;margin-bottom:30px}
+        .grid{
             display:grid;
             grid-template-columns:repeat(6,1fr);
-            gap:15px;
-            max-width:900px;
+            gap:16px;
+            max-width:960px;
             margin:0 auto;
         }
-        .door {
+        .door{
             background:#d32f2f;
-            height:95px;
-            border-radius:14px;
+            height:100px;
+            border-radius:16px;
             display:flex;
             align-items:center;
             justify-content:center;
-            font-size:2.4em;
+            font-size:2.6em;
             font-weight:bold;
             cursor:pointer;
             transition:.3s;
-            box-shadow:0 6px 12px rgba(0,0,0,0.4);
+            box-shadow:0 6px 15px rgba(0,0,0,.5);
         }
-        .door:hover {background:#b71c1c; transform:scale(1.08);}
-        .door.open {background:#006400; cursor:default;}
-        .door.open::after {content:"✈️"; font-size:3em;}
-        #msg {font-size:1.5em; margin-top:40px; display:none;}
+        .door:hover{background:#b71c1c;transform:scale(1.08)}
+        .door.open{background:#006400;cursor:default}
+        .door.open::after{content:"✈️";font-size:3.2em}
+        #msg{font-size:1.6em;margin-top:40px;display:none}
 
-        /* Мобильная версия — 4 столбца */
-        @media (max-width:768px) {
-            .grid {grid-template-columns:repeat(4,1fr); gap:14px;}
-            .door {height:85px; font-size:2.2em;}
-        }
-        @media (max-width:480px) {
-            .grid {grid-template-columns:repeat(3,1fr); gap:12px;}
-            .door {height:75px; font-size:2em;}
-        }
+        @media(max-width:768px){.grid{grid-template-columns:repeat(4,1fr);gap:14px}}
+        @media(max-width:480px){.grid{grid-template-columns:repeat(3,1fr);gap:12px}.door{height:85px;font-size:2.2em}}
     </style>
 </head>
 <body>
@@ -98,17 +88,13 @@
 <div id="msg">Du wirst weitergeleitet…</div>
 
 <script>
-function fly() {
-    if (event.target.classList.contains('open')) return;
-    event.target.classList.add('open');
-    event.target.innerHTML = '';
-    document.getElementById('msg').style.display = 'block';
-
-    // Lead-событие
-    fbq('track', 'Lead');
-
-    // Точный редирект на твой оффер
-    window.location.href = "https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
+function fly(){
+    if(this.classList.contains('open'))return;
+    this.classList.add('open');
+    this.innerHTML='';
+    document.getElementById('msg').style.display='block';
+    fbq('track','Lead');
+    window.location.href="https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
 }
 </script>
 
