@@ -3,93 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanaren Adventskalender 2025</title>
+    <title>Kanaren Adventskalender 2025 – Gewinne jetzt!</title>
+
+    <!-- Meta Pixel Code (твой ID 4087538184909337) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4087538184909337');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=4087538184909337&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
-        * {margin:0; padding:0; box-sizing:border-box;}
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #001f3f 0%, #0074D9 50%, #7FDBFF 100%);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            overflow: hidden;
-        }
-        @keyframes gradient {0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;}}
-        .snow {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px);
-            animation: snowfall 10s linear infinite;
-        }
-        @keyframes snowfall {0% {transform: translateY(0px);} 100% {transform: translateY(100vh);}}
-        .container {text-align: center; padding: 20px; z-index: 1; position: relative;}
-        h1 {
-            font-size: 2.5em;
-            text-shadow: 0 0 20px #FFD700;
-            margin-bottom: 10px;
-            animation: glow 2s infinite alternate;
-        }
-        p {font-size: 1.4em; margin-bottom: 30px; color: #FFD700; text-shadow: 0 0 10px #000;}
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .door {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #DC143C, #B22222);
-            border: 3px solid #FFD700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px #000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        .door:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(255,215,0,0.5);
-        }
-        .door::before {content: '🎁'; position: absolute; font-size: 1.5em; z-index: -1;}
-        @keyframes glow {0% {text-shadow: 0 0 10px #FFD700;} 100% {text-shadow: 0 0 30px #FFD700, 0 0 40px #FFF;}}
+        body {margin:0; font-family:Arial,Helvetica,sans-serif; background:linear-gradient(135deg,#001f3f,#007bff); color:white; text-align:center; padding:20px 10px;}
+        h1 {font-size:2.3em; margin:15px 0 10px;}
+        p {font-size:1.2em;}
+        .grid {display:grid; grid-template-columns:repeat(4,1fr)/repeat(6,1fr); gap:12px; max-width:720px; margin:30px auto;}
+        .door {background:#c00; height:90px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2.2em; font-weight:bold; cursor:pointer; transition:all 0.3s;}
+        .door:hover {background:#900; transform:scale(1.07);}
+        .door.open {background:#006400; cursor:default; transform:scale(1);}
+        .door.open::after {content:"✈️"; font-size:2.5em;}
+        #msg {font-size:1.4em; margin:20px; display:none;}
     </style>
 </head>
 <body>
-    <div class="snow"></div>
-    <div class="container">
-        <h1>🎄 Kanaren Adventskalender 2025 🎄</h1>
-        <p>Öffne ein Türchen und gewinne sofort<br><strong>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</strong></p>
-        <div class="calendar">
-            <div class="door">1</div><div class="door">2</div><div class="door">3</div><div class="door">4</div><div class="door">5</div><div class="door">6</div>
-            <div class="door">7</div><div class="door">8</div><div class="door">9</div><div class="door">10</div><div class="door">11</div><div class="door">12</div>
-            <div class="door">13</div><div class="door">14</div><div class="door">15</div><div class="door">16</div><div class="door">17</div><div class="door">18</div>
-            <div class="door">19</div><div class="door">20</div><div class="door">21</div><div class="door">22</div><div class="door">23</div><div class="door">24</div>
-        </div>
-    </div>
-    <script>
-        document.querySelectorAll('.door').forEach(door => door.addEventListener('click', () => {
-            const url = new URL('https://dt-ssl.com/');
-            url.searchParams.set('a', '291783'); url.searchParams.set('c', '388141'); url.searchParams.set('co', '355318');
-            url.searchParams.set('mt', '16'); url.searchParams.set('s1', 'canary_main');
-            const params = new URLSearchParams(location.search);
-            const clickid = params.get('s2') || params.get('clickid') || '';
-            if (clickid) url.searchParams.set('s2', clickid);
-            location.href = url.toString();
-        }));
-    </script>
+
+<h1>Kanaren Adventskalender 2025</h1>
+<p>Öffne ein Türchen und gewinne sofort<br>10 Tage 5★-Urlaub für 2 Personen inkl. Flug!</p>
+
+<div class="grid">
+    <div class="door" onclick="fly()">1</div>
+    <div class="door" onclick="fly()">2</div>
+    <div class="door" onclick="fly()">3</div>
+    <div class="door" onclick="fly()">4</div>
+    <div class="door" onclick="fly()">5</div>
+    <div class="door" onclick="fly()">6</div>
+    <div class="door" onclick="fly()">7</div>
+    <div class="door" onclick="fly()">8</div>
+    <div class="door" onclick="fly()">9</div>
+    <div class="door" onclick="fly()">10</div>
+    <div class="door" onclick="fly()">11</div>
+    <div class="door" onclick="fly()">12</div>
+    <div class="door" onclick="fly()">13</div>
+    <div class="door" onclick="fly()">14</div>
+    <div class="door" onclick="fly()">15</div>
+    <div class="door" onclick="fly()">16</div>
+    <div class="door" onclick="fly()">17</div>
+    <div class="door" onclick="fly()">18</div>
+    <div class="door" onclick="fly()">19</div>
+    <div class="door" onclick="fly()">20</div>
+    <div class="door" onclick="fly()">21</div>
+    <div class="door" onclick="fly()">22</div>
+    <div class="door" onclick="fly()">23</div>
+    <div class="door" onclick="fly()">24</div>
+</div>
+
+<div id="msg">Du wirst weitergeleitet…</div>
+
+<script>
+function fly() {
+    if (event.target.classList.contains('open')) return;
+    event.target.classList.add('open');
+    event.target.innerHTML = '';
+    document.getElementById('msg').style.display = 'block';
+
+    // Отправляем событие Lead в пиксель
+    fbq('track', 'Lead');
+
+    // Редирект на твой оффер (с сохранением {clickid})
+    window.location.href = "https://dt-ssl.com/?a=291783&c=388141&co=355318&mt=16&s1=canary_main&s2={clickid}";
+}
+</script>
+
 </body>
 </html>
